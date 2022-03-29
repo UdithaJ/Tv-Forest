@@ -15,30 +15,39 @@
           <div class="md-layout md-gutter">
             <div class="md-layout-item md-small-size-100">
               <v-text-field
-                  label="First Name"
                   solo
                   required
                   :rules="firstNameRules"
-              ></v-text-field>
+              >
+                <template #label>
+                  First Name<span class="red--text"><strong>* </strong></span>
+                </template>
+              </v-text-field>
             </div>
 
             <div class="md-layout-item md-small-size-100">
               <v-text-field
-                  label="Last Name"
                   solo
                   required
                   :rules="lastNameRules"
-              ></v-text-field>
+              >
+                <template #label>
+                  Last Name<span class="red--text"><strong>* </strong></span>
+                </template>
+              </v-text-field>
             </div>
           </div>
 
 
           <v-text-field
-              label="Email"
               solo
               :rules="emailRules"
               required
-          ></v-text-field>
+          >
+            <template #label>
+              Email<span class="red--text"><strong>* </strong></span>
+            </template>
+          </v-text-field>
 
 
           <v-text-field
@@ -54,7 +63,9 @@
               row-height="15"
               solo
           ></v-textarea>
-
+          <v-col class="text-left">
+         <span class="red--text"><strong>* </strong></span> Required Fields
+          </v-col>
           <v-checkbox
               v-model="terms"
               :rules="[v => !!v || 'You must agree to continue!']"
