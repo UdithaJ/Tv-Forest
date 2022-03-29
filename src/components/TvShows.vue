@@ -19,7 +19,7 @@
         ></v-text-field>
       </v-toolbar>
 
-      <v-toolbar v-if="title !== null"
+      <v-toolbar v-if="title !== ''"
           color="blue"
           dark
           height="40px"
@@ -29,10 +29,9 @@
         <v-spacer />
       </v-toolbar>
 
-      <NotFound v-if="title !== null && tvShows.length === 0"></NotFound>
+      <NotFound v-if="title !== '' && tvShows.length === 0"></NotFound>
 
-      <v-slide-group v-if="tvShows.length !== 0 && title !== null"
-                     v-model="model"
+      <v-slide-group v-if="tvShows.length !== 0 && title !== ''"
                      class="pa-4"
                      active-class="success"
                      show-arrows
@@ -158,14 +157,14 @@ export default {
     return {
       tvShows: [],
       favourites: [],
-      title: null,
+      title: '',
     }
   },
 
   methods: {
     getTvShows() {
       console.log(this.title)
-      if (this.title !== null) {
+      if (this.title !== '') {
         axios.get('https://api.tvmaze.com/search/shows?q=' + this.title).then(response => {
           this.tvShows = response.data
         })
