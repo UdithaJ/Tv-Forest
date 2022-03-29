@@ -106,7 +106,7 @@
                 max-width="344"
                 height="400"
                 style="margin-bottom: 10px"
-                color="#9A9595"
+                color="#3A3B3C"
             >
               <v-img
                   :src="tvShow.show.image.original"
