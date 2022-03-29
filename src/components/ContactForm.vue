@@ -15,6 +15,7 @@
           <div class="md-layout md-gutter">
             <div class="md-layout-item md-small-size-100">
               <v-text-field
+                  v-model="form.firstName"
                   solo
                   required
                   :rules="firstNameRules"
@@ -27,6 +28,7 @@
 
             <div class="md-layout-item md-small-size-100">
               <v-text-field
+                  v-model="form.lastName"
                   solo
                   required
                   :rules="lastNameRules"
@@ -40,6 +42,7 @@
 
 
           <v-text-field
+              v-model="form.email"
               solo
               :rules="emailRules"
               required
@@ -51,11 +54,13 @@
 
 
           <v-text-field
+              v-model="form.telephone"
               label="Telephone"
               solo
           ></v-text-field>
 
           <v-textarea
+              v-model="form.message"
               label="Message"
               auto-grow
               outlined
@@ -77,7 +82,7 @@
           <v-btn
               color="warning"
               class="mr-4"
-              @click="validate"
+              @click="submit"
           >
             Submit
           </v-btn>
@@ -120,9 +125,9 @@ export default {
     form: {
       firstName: null,
       lastName: null,
-      gender: null,
-      age: null,
       email: null,
+      telephone: null,
+      message: null
     },
     terms: false,
     valid: false,
@@ -139,8 +144,9 @@ export default {
     ],
   }),
   methods: {
-    validate () {
+    submit () {
       if ( this.$refs.form.validate()){
+        console.log(this.form)
         this.submitted = true;
       }
     },
