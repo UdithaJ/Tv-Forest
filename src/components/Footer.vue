@@ -12,11 +12,12 @@
         <strong class="subheading">Tv Forest</strong>
 
         <v-spacer></v-spacer>
-        <span>Follow us on</span>
+        <v-container class="text-right">
+          <span>Follow us on</span>
         <v-btn
             v-for="icon in icons"
             :key="icon"
-            class="mx-4"
+            class="mx-1"
             dark
             icon
         >
@@ -24,6 +25,7 @@
             {{ icon }}
           </v-icon>
         </v-btn>
+        </v-container>
       </v-card-title>
 
       <v-divider></v-divider>

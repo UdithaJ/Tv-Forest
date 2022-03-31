@@ -4,15 +4,12 @@
       <v-card
           color="grey lighten-4"
           flat
-          height="400px"
           tile
       >
         <video autoplay muted loop id="HeaderVideo">
           <source :src="require('@/assets/HeaderVideo.mp4')" type="video/mp4">
         </video>
       <v-app-bar color="black" app >
-        <v-app-bar-nav-icon @click="drawer = true" class="d-flex d-sm-none"
-        ></v-app-bar-nav-icon>
         <v-avatar  size="200" :tile="true">
           <img :src="require('@/assets/LogoWhite.svg')" alt="logo">
         </v-avatar>
@@ -24,7 +21,10 @@
           ></v-img>
         </template>
 
-          <v-tabs
+        <v-app-bar-nav-icon  @click="drawer = true" class="hidden-lg-and-up"
+        ></v-app-bar-nav-icon>
+
+          <v-tabs  class="d-none d-lg-block"
               v-model="tab"
              right
           >
@@ -50,11 +50,10 @@
         <v-card-title class="text-h3">
           MOVIE LIBRARY
         </v-card-title>
-  <div style="width: 40%">
-        <v-card-subtitle class="text-h7 text-wrap">dLorem ipsum dolor sit amet, consetetur sadipscing elitr,
+        <v-card-subtitle class="text-h7 text-left">dLorem ipsum dolor sit amet, consetetur sadipscing elitr,
           sed diam nonumy eirmod tempor invidunt ut labore et
           dolore magna aliquyam erat, sed diam voluptua</v-card-subtitle>
-  </div>
+
 
       </v-card>
 
@@ -63,6 +62,7 @@
           v-model="drawer"
           absolute
           temporary
+          right
       >
         <v-list
             nav
@@ -122,12 +122,13 @@ export default {
   methods:{
     changeTab(link){
      router.push({name: link.name});
-    }
-  }
+    },
+  },
+
+
 
 }
 </script>
 
 <style scoped>
-
 </style>
